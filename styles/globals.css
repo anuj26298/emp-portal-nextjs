@@ -19,8 +19,101 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: black;
   }
+}
+
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+  font-family: 'Arvo', serif;
+}
+
+.page_404 img {
+  width: 100%;
+}
+
+.four_zero_four_bg {
+
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+}
+
+
+.four_zero_four_bg h1 {
+  font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+  font-size: 80px;
+}
+
+.link_404 {
+  color: rgb(6, 6, 6) !important;
+  padding: 10px 20px;
+  background: #f0f3f0;
+  margin-left: 30px;
+  display: inline-block;
+}
+
+.contant_box_404 {
+  margin-top: -50px;
+}
+.header {
+  position: relative;
+  height: 70vh;
+  min-height: 713px;
+  background-image: linear-gradient(to top,rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../public/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  background-color: black;
+}
+.header .container {
+  position: relative;
+  height: 100%;
+}
+.navbarItems {
+  display: list-item;
+  list-style-type: none;
+  padding-left: 50px;
+  padding-right: 5px;
+}
+.navbarMenu {
+  list-style-type: none;
+  padding-left: 100px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 20%;
+  padding-top: 10px;
+}
+.header .headerContent {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 55%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+.header .headerContent .headerSubtitle {
+  font-weight: 200;
+  font-size: calc(20px + (45 -20) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.header .headerContent .headerTitle {
+  font-size: calc(40px + (120 - 40) * ((100vw - 300px) / (1600 - 300)));
+  font-weight: bold;
+  line-height: .7;
+  margin-bottom: 25px;
+  color: inherit;
+}
+.header .headerContent .headermono {
+  font-weight: 500;
+  font-size: calc(12px + (19 - 12) * ((100vw - 300px) / (1600 - 300)));
+  margin-bottom: 40px;
 }
