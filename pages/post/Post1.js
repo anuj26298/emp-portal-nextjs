@@ -1,4 +1,4 @@
-const Blog1 = () => {
+const Post1 = () => {
 
     return (
         <>
@@ -7,4 +7,4 @@ const Blog1 = () => {
     )
 }
 
-export default Blog1;
+export default Post1;

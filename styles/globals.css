@@ -117,3 +117,40 @@ a {
   font-size: calc(12px + (19 - 12) * ((100vw - 300px) / (1600 - 300)));
   margin-bottom: 40px;
 }
+.blog-item {
+  margin: auto;
+  padding: 15px 20px;
+  width: 60%;
+  background-color: #fff;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.blog-item:last-child {
+  margin-bottom: 100px;
+}
+
+.blog-item-inside {
+  flex-direction: column;
+}
+
+.blog-item h3 {
+  padding: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: #189cf0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+.blog-item h2:hover {
+  color: #189cf0;
+  cursor: pointer;
+}

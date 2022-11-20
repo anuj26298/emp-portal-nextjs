@@ -1,10 +1,12 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from '../../styles/about.module.css'
 import Image from "next/image";
+import Head from "next/head";
 const About = () => {
 
     return (
         <>
+        <Head><title>About</title></Head>
         <Navbar />
         <div className={styles.aboutPage}>
         <h1 className={styles.heading}>About page</h1>

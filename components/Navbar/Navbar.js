@@ -1,12 +1,12 @@
 import Link from "next/link";
-const Navbar = (styles) => {
-    console.log(styles)
+const Navbar = () => {
+
     return (
         <ul className='navbarMenu'>
                 <li className='navbarItems'><Link href='/'>Home</Link></li>
                 <li className='navbarItems'><Link href='/about'>About</Link></li>
                 <li className='navbarItems'><Link href='/contact'>Contact</Link></li>
-                <li className='navbarItems'><Link href='/blog'>Blog</Link></li>
+                <li className='navbarItems'><Link href='/post'>Post</Link></li>
         </ul>
     )
 }
