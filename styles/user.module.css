@@ -1,0 +1,20 @@
+.userHeader {
+    position: relative;
+    height: 70vh;
+    min-height: 713px;
+    background-image: linear-gradient(to top,rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../public/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    background-color: black;
+  }
+  .headerContent{
+    height: 20vh;
+    padding-left: 30%;
+    padding-top: 8%;
+  }
+  .formContent{
+    padding-left: 30%;
+    padding-top: 10%;
+  }
