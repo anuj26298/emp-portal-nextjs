@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addUsers } from '../../store/userSlice'
 import styles from '../../styles/user.module.css'
+import NavBar from '../../components/Navbar/Navbar'
+import Head from 'next/head'
 const userName = () => {
   const dispatch = useDispatch()
   const [name, setUsername] = useState()
@@ -14,6 +16,8 @@ const userName = () => {
   }
   return (
     <>
+      <Head><title>User</title></Head>
+      <NavBar />
       <div className={styles.userHeader}>
         <header className={styles.headerContent}>Enter the Username you want to access the webpage as!</header>
         <div>
