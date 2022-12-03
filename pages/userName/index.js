@@ -4,7 +4,9 @@ import { useDispatch } from 'react-redux'
 import { addUsers } from '../../store/userSlice'
 import styles from '../../styles/user.module.css'
 import NavBar from '../../components/Navbar/Navbar'
+import EmployeeForm from '../../components/EmpForm/EmployeeForm'
 import Head from 'next/head'
+
 const userName = () => {
   const dispatch = useDispatch()
   const [name, setUsername] = useState()
@@ -18,7 +20,8 @@ const userName = () => {
     <>
       <Head><title>User</title></Head>
       <NavBar />
-      <div className={styles.userHeader}>
+      <EmployeeForm />
+      {/* <div className={styles.userHeader}>
         <header className={styles.headerContent}>Enter the Username you want to access the webpage as!</header>
         <div>
           <form className={styles.formContent}>
@@ -30,7 +33,7 @@ const userName = () => {
             </Link>
           </form>
         </div>
-      </div>
+      </div> */}
 
     </>
   )
