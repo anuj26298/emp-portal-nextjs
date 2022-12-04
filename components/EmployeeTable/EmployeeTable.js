@@ -38,7 +38,9 @@ const rows = [
 ];
 
 const EmployeesTable = ({employee}) => {
-
+  const deleteEmp = (id) => {
+    const response = fetch(`http://localhost:3000/api/employee/${id}`,{method:'DELETE'})
+  }
   return (
             <StyledTableRow key={employee._id}>
               <StyledTableCell align="right">{employee.empCode}</StyledTableCell>
@@ -51,7 +53,7 @@ const EmployeesTable = ({employee}) => {
               <StyledTableCell align="right">{employee.dateOfJoining}</StyledTableCell>
               <StyledTableCell align="right">{employee.address}</StyledTableCell>
               <StyledTableCell align="right">
-                <DeleteIcon style={{'cursor':'pointer'}} />
+                <DeleteIcon style={{'cursor':'pointer'}} onClick={() => deleteEmp(employee._id)}/>
                 <EditIcon style={{'cursor':'pointer'}}/></StyledTableCell>
             </StyledTableRow>
   );

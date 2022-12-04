@@ -8,7 +8,7 @@ const Header = () => {
       <div className={styles.container}>
         <Navbar />
         <div className={styles.headerContent}>
-          <h4 className={styles.headerSubtitle}>Welcome {username} to Next Js Overview Session</h4>
+          <h4 className={styles.headerSubtitle}>Employee Management Portal</h4>
           <h1 className={styles.headerTitle}>By Team Magic</h1>
           <h6 className={styles.headermono} />
         </div>

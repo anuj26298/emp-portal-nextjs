@@ -49,7 +49,7 @@ const EmployeeForm = () => {
                   },
             })
             if(response && response.status === 201) {
-                window.location.replace('/contact')
+                // window.location.replace('/contact')
             }
         } catch(err) {
             console.log('Error in creating new emp','err')
