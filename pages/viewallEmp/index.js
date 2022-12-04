@@ -10,6 +10,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { updateEmployeeList } from '../../store/employeeListSlice';
+import { wrapper } from '../../store/store';
+import { useSelector } from 'react-redux';
+
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -23,26 +27,25 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 
-export const getStaticProps = async () => {
+export const getStaticProps = wrapper.getStaticProps(store=>(
+async () => {
   let response;
   try {
   response = await fetch('http://localhost:3000/api/employee')
   response = await response.json()
+
   } catch(err) {
     response = { data: []}
   }
-  return {
-    props: {
-      employees: response
-    }
-  }
+  store.dispatch(updateEmployeeList(response))
 }
-const ViewAllEmp = ({employees}) => {
+))
+const ViewAllEmp = () => {
+  const employees=useSelector(state=>state.employeeList.employeeList)
   return (
     <>
       <Head><title>Contact</title></Head>
       <Navbar />
-      {/* <h1 className={styles.heading}>Contact Page</h1> */}
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
@@ -59,9 +62,9 @@ const ViewAllEmp = ({employees}) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {employees && employees.data && employees.data.map((employee) => (
-            <EmployeesTable employee={employee} />
-          ))}
+          {employees && employees?.data && employees?.data?.map((employee) => (
+              <EmployeesTable employee={employee} />
+          ))} 
         </TableBody>
       </Table>
     </TableContainer>

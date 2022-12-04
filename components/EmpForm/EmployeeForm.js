@@ -1,12 +1,7 @@
-import React, { useState } from 'react'
 import { ThemeProvider, createTheme } from '@mui/material';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
@@ -21,11 +16,6 @@ import { designations } from '../constants';
 
 const theme = createTheme()
 const EmployeeForm = () => {
-    const [gender, setGender] = useState();
-
-    const handleChange = (e) => {
-        setGender(e.target.value)
-    }
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);

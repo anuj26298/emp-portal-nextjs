@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux'
 import styles from '../../styles/Home.module.css'
 import Navbar from '../Navbar/Navbar'
 const Header = () => {
-  const username = useSelector((states) => states.users.users)
   return (
     <header className={styles.header}>
       <div className={styles.container}>
