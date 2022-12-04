@@ -26,17 +26,34 @@ const EmployeeForm = () => {
     const handleChange = (e) => {
         setGender(e.target.value)
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            firstName: data.get('firstName'),
-            lastName: data.get('lastName'),
-            gender: data.get('gender'),
-            date: data.get('date'),
-            designation: data.get('designation')
-        });
+
+        let response;
+        try {
+            response = await fetch('http://localhost:3000/api/employee',{
+                method:'POST',
+                body:JSON.stringify({
+                    firstName: data.get('firstName'),
+                    lastName: data.get('lastName'),
+                    email: data.get('email'),
+                    empCode: data.get('empcode'),
+                    dateOfJoining:data.get('date'),
+                    gender: data.get('gender'),
+                    designation: data.get('designation'),
+                    address: data.get('address')
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                  },
+            })
+            if(response && response.status === 201) {
+                window.location.replace('/contact')
+            }
+        } catch(err) {
+            console.log('Error in creating new emp','err')
+        }
     };
 
     const dateNow = new Date();
