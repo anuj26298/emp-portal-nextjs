@@ -154,3 +154,7 @@ a {
   color: #189cf0;
   cursor: pointer;
 }
+.selected-menu-button {
+  color: #000000;
+  background: #fff;
+}

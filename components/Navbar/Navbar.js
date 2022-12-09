@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -20,7 +20,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null)
-
+  const [selectedMenu,setSelectedMenu] = useState();
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -35,7 +35,10 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  useEffect(() => {
+    const pathname = window.location.pathname
+    setSelectedMenu(pathname)
+  },[])
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -121,6 +124,7 @@ function ResponsiveAppBar() {
                   key={page.id}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
+                  className={`${page.link === selectedMenu && 'selected-menu-button'}`}
                 >
                   {page.title}
                 </Button>
