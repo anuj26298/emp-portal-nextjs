@@ -31,7 +31,7 @@ export const getStaticProps = wrapper.getStaticProps(store=>(
 async () => {
   let response;
   try {
-  response = await fetch('http://localhost:3000/api/employee')
+  response = await fetch('/api/employee')
   response = await response.json()
 
   } catch(err) {

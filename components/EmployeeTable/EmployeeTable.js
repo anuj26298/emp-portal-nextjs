@@ -39,7 +39,7 @@ const rows = [
 
 const EmployeesTable = ({employee}) => {
   const deleteEmp = (id) => {
-    fetch(`http://localhost:3000/api/employee/${id}`,{method:'DELETE'})
+    fetch(`/api/employee/${id}`,{method:'DELETE'})
     window.location.replace('./viewallEmp')
   }
   return (
