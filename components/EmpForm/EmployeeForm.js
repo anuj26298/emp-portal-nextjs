@@ -39,7 +39,7 @@ const EmployeeForm = () => {
                   },
             })
             if(response && response.status === 201) {
-                window.location.replace('/viewAllEmp')
+                window.location.replace('/viewallEmp')
             }
         } catch(err) {
             console.log('Error in creating new emp','err')
