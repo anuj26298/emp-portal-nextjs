@@ -4,6 +4,7 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import Link from 'next/link';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -55,7 +56,7 @@ const EmployeesTable = ({employee}) => {
               <StyledTableCell align="right">{employee.address}</StyledTableCell>
               <StyledTableCell align="right">
                 <DeleteIcon style={{'cursor':'pointer'}} onClick={() => deleteEmp(employee._id)}/>
-                <EditIcon style={{'cursor':'pointer'}}/></StyledTableCell>
+                <Link href={`/userName/${employee._id}`}><EditIcon style={{'cursor':'pointer'}}/></Link></StyledTableCell>
             </StyledTableRow>
   );
 }
