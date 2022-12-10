@@ -2,9 +2,11 @@ import NavBar from '../../components/Navbar/Navbar'
 import Head from 'next/head'
 import EditEmpDetails from '../../components/EmpForm/EditEmpDetails'
 import { returnUrl } from '../../utils/utils'
-export const getStaticPaths = async (context) => {
-  const url = returnUrl(context)
-  let response = await fetch(`${url}/api/employee`)
+import absoluteUrl from 'next-absolute-url'
+export const getStaticPaths = async ({req}) => {
+  // const url = returnUrl(context)
+  const {origin} = absoluteUrl(req,req.headers.origin)
+  let response = await fetch(`${origin}/api/employee`)
    response = await response.json()
   const data = response && response.data ? response.data : []
   const paths = data && data.map((item) => {
