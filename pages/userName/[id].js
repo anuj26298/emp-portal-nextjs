@@ -1,11 +1,10 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { useRouter } from 'next/router'
 import NavBar from '../../components/Navbar/Navbar'
 import Head from 'next/head'
 import EditEmpDetails from '../../components/EmpForm/EditEmpDetails'
-export const getStaticPaths = async () => {
-  let response = await fetch('http://localhost:3000/api/employee')
+import { returnUrl } from '../../utils/utils'
+export const getStaticPaths = async (context) => {
+  const url = returnUrl(context)
+  let response = await fetch(`${url}/api/employee`)
    response = await response.json()
   const data = response && response.data ? response.data : []
   const paths = data && data.map((item) => {
@@ -22,7 +21,7 @@ export const getStaticPaths = async () => {
 }
 export const getStaticProps = async (context) => {
   const id = context.params.id
-  const res = await fetch(`http://localhost:3000/api/employee/${id}`)
+  const res = await fetch(`/api/employee/${id}`)
   const data = await res.json()
 
   return {

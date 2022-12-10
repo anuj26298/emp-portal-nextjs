@@ -22,7 +22,7 @@ const EmployeeForm = () => {
 
         let response;
         try {
-            response = await fetch('http://localhost:3000/api/employee',{
+            response = await fetch('/api/employee',{
                 method:'POST',
                 body:JSON.stringify({
                     firstName: data.get('firstName'),
