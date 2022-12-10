@@ -13,6 +13,7 @@ import Paper from '@mui/material/Paper';
 import { updateEmployeeList } from '../../store/employeeListSlice';
 import { wrapper } from '../../store/store';
 import { useSelector } from 'react-redux';
+import { returnUrl } from '../../utils/utils';
 
 
 
@@ -28,10 +29,11 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 
 export const getStaticProps = wrapper.getStaticProps(store=>(
-async () => {
+async (context) => {
+  const url = returnUrl(context)
   let response;
   try {
-  response = await fetch('/api/employee')
+  response = await fetch(`${url}/api/employee`)
   response = await response.json()
 
   } catch(err) {
