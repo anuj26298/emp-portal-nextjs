@@ -58,7 +58,7 @@ const ViewAllEmp = () => {
   }, [])
   return (
     <>
-      <Head><title>Contact</title></Head>
+      <Head><title>Employee List</title></Head>
       <Navbar />
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -76,9 +76,9 @@ const ViewAllEmp = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {employeeList && employeeList.length && employeeList.map((employee) => (
+          {employeeList && employeeList.length ? employeeList.map((employee) => (
               <EmployeesTable employee={employee} />
-          ))} 
+          )) : <div></div>} 
         </TableBody>
       </Table>
     </TableContainer>
