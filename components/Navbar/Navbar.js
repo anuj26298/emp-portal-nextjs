@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import Link from 'next/link';
 import {pages} from '../constants'
+import styles from '../../styles/navbar.module.css'
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -37,7 +38,6 @@ function ResponsiveAppBar() {
   };
   useEffect(() => {
     const pathname = window.location.pathname
-    console.log("PATH NAME",pathname)
     setSelectedMenu(pathname)
   },[])
   return (
@@ -125,7 +125,7 @@ function ResponsiveAppBar() {
                   key={page.id}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
-                  className={`${page.link === selectedMenu && 'selected-menu-button'}`}
+                  className={`${page.link === selectedMenu && styles.selectedMenuButton}`}
                 >
                   {page.title}
                 </Button>
