@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import EmployeesTable from '../../components/EmployeeTable/EmployeeTable'
 import Navbar from '../../components/Navbar/Navbar'
@@ -28,22 +29,33 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 
-export const getStaticProps = wrapper.getStaticProps(store=>(
-async (context) => {
-  const url = returnUrl(context)
-  let response;
-  try {
-  response = await fetch(`${url}/api/employee`)
-  response = await response.json()
+// export const getStaticProps = wrapper.getStaticProps(store=>(
+// async (context) => {
+//   const url = returnUrl(context)
+//   let response;
+//   try {
+//   response = await fetch(`${url}/api/employee`)
+//   response = await response.json()
 
-  } catch(err) {
-    response = { data: []}
-  }
-  store.dispatch(updateEmployeeList(response))
-}
-))
+//   } catch(err) {
+//     response = { data: []}
+//   }
+//   store.dispatch(updateEmployeeList(response))
+// }
+// ))
 const ViewAllEmp = () => {
-  const employees=useSelector(state=>state.employeeList.employeeList)
+  const [employeeList,setEmployeeList] = useState([])
+  // const employees=useSelector(state=>state.employeeList.employeeList)
+  useEffect(() => {
+    const getEmployeeList =   async () => {
+      let  response = await fetch('/api/employee');
+      response = await response.json()
+      if(response && response.data) {
+        setEmployeeList(response.data)
+      }
+    }
+  getEmployeeList();
+  }, [])
   return (
     <>
       <Head><title>Contact</title></Head>
@@ -64,7 +76,7 @@ const ViewAllEmp = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {employees && employees?.data && employees?.data?.map((employee) => (
+          {employeeList && employeeList.length && employeeList.map((employee) => (
               <EmployeesTable employee={employee} />
           ))} 
         </TableBody>
