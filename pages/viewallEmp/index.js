@@ -28,13 +28,12 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 
-export const getStaticProps = wrapper.getStaticProps(store=>(
+export const getServerSideProps = wrapper.getServerSideProps(store=>(
 async (context) => {
   let response;
   try {
   response = await fetch(`https://emp-portal-srvr.vercel.app/api/employee`)
   response = await response.json()
-   console.log('RESPONSE',response) 
   } catch(err) {
     response = { data: []}
   }
