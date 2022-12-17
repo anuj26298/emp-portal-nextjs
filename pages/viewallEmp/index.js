@@ -34,7 +34,7 @@ async (context) => {
   try {
   response = await fetch(`https://emp-portal-srvr.vercel.app/api/employee`)
   response = await response.json()
-
+   console.log('RESPONSE',response) 
   } catch(err) {
     response = { data: []}
   }
