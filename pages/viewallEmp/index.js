@@ -14,7 +14,6 @@ import Paper from '@mui/material/Paper';
 import { updateEmployeeList } from '../../store/employeeListSlice';
 import { wrapper } from '../../store/store';
 import { useSelector } from 'react-redux';
-import { returnUrl } from '../../utils/utils';
 
 
 
@@ -29,33 +28,23 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 
-// export const getStaticProps = wrapper.getStaticProps(store=>(
-// async (context) => {
-//   const url = returnUrl(context)
-//   let response;
-//   try {
-//   response = await fetch(`${url}/api/employee`)
-//   response = await response.json()
+export const getStaticProps = wrapper.getStaticProps(store=>(
+async (context) => {
+  let response;
+  try {
+  response = await fetch(`https://emp-portal-srvr.vercel.app/api/employee`)
+  response = await response.json()
 
-//   } catch(err) {
-//     response = { data: []}
-//   }
-//   store.dispatch(updateEmployeeList(response))
-// }
-// ))
+  } catch(err) {
+    response = { data: []}
+  }
+  store.dispatch(updateEmployeeList(response))
+}
+))
+
 const ViewAllEmp = () => {
-  const [employeeList,setEmployeeList] = useState([])
-  // const employees=useSelector(state=>state.employeeList.employeeList)
-  useEffect(() => {
-    const getEmployeeList =   async () => {
-      let  response = await fetch('/api/employee');
-      response = await response.json()
-      if(response && response.data) {
-        setEmployeeList(response.data)
-      }
-    }
-  getEmployeeList();
-  }, [])
+  const employees=useSelector(state=>state.employeeList.employeeList)
+
   return (
     <>
       <Head><title>Employee List</title></Head>
@@ -76,7 +65,7 @@ const ViewAllEmp = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {employeeList && employeeList.length ? employeeList.map((employee) => (
+          {employees.data && employees.data.length ? employees.data.map((employee) => (
               <EmployeesTable employee={employee} />
           )) : <div></div>} 
         </TableBody>

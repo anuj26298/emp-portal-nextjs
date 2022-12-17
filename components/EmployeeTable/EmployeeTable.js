@@ -51,7 +51,7 @@ const EmployeesTable = ({employee}) => {
               <StyledTableCell align="right">{employee.gender}</StyledTableCell>
               <StyledTableCell align="right">{employee.email}</StyledTableCell>
               <StyledTableCell align="right">{employee.designation}</StyledTableCell>
-              <StyledTableCell align="right">{employee.dateOfJoining}</StyledTableCell>
+              <StyledTableCell align="right">{employee.dateOfJoining.split('T')[0]}</StyledTableCell>
               <StyledTableCell align="right">{employee.address}</StyledTableCell>
               <StyledTableCell align="right">
                 <DeleteIcon style={{'cursor':'pointer'}} onClick={() => deleteEmp(employee._id)}/>
