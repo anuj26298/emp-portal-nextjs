@@ -22,7 +22,7 @@ const EditEmpDetails = ({empDetails}) => {
 
         let response;
         try {
-            response = await fetch(`http://localhost:3000/api/employee/${empDetails.data._id}`,{
+            response = await fetch(`/api/employee/${empDetails.data._id}`,{
                 method:'PUT',
                 body:JSON.stringify({
                     firstName: data.get('firstName'),
